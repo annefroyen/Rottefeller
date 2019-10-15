@@ -27,7 +27,6 @@
                 float: right;
                 height: 100vh;
             }
-
             .maps{
               width: 80%;
               float: right;
@@ -35,34 +34,30 @@
             }
             .meny{
               width: 17%;
-            padding: 1%;
+              padding: 1%;
               float: left;
               height: 100vh;
-              background:grey;
               font-family: sans-serif;
-
             }
-
             .tittel{
-              font-size: 3vw;
+              font-size: 2vw;
             }
             .info{
-              font-size: 2vw;
-
+              font-size: 1vw;
             }
             .knapper{
               position: absolute;
               bottom: 0px;
-
             }
             .table {
               width: 100%;
               height: 100%;
-       }
+             }
             .knapp{
-
+              background-color: transparent;
+              border-color: transparent;
+              cursor:pointer;
             }
-
 
         </style>
 
@@ -76,7 +71,19 @@
 <h1 class="tittel">Rottefeller</h1>
 <div id="info" class="info">
   Hentet fra Stavanger kommune sine
+
   <a href="https://open.stavanger.kommune.no/dataset/rottefeller-i-stavanger/resource/db04ffae-a248-43d0-a597-d446a09e369e">datasett</a>
+
+  <table>
+<tr>
+<td> <img src="icon/rotteKnappGulLiten.png"></td>
+<td>Alder</td>
+</tr>
+<tr>
+<td><img src="icon/rotteKnappGulLiten.png"></td>
+<td>Alder</td>
+</tr>
+</table>
 </div>
 
 <div class="knapper">
@@ -84,17 +91,21 @@
 <tr>
 <td>
 
-<button id="hyppighetBtn" onclick="hyppighetSide()">Aktivitet</button>
+<button class="knapp" id="hyppighetBtn" onclick="hyppighetSide()">
+  <img src="icon/rotteKnappGulLiten.png"><br>Hyppighet</button>
 </td>
 <td>
-  <button id="NyligBtn" onclick="nyligSide()">Nylig aktivitet</button>
+  <button class="knapp" id="NyligBtn" onclick="nyligSide()">
+    <img src="icon/rotteKnappBlaa.png"><br>Nylig aktivitet</button>
 </td>
 </tr>
 <tr>
 <td>
-  <button id="ModellerBtn" onclick="modellerSide()">Modeller</button>
+  <button class="knapp" id="ModellerBtn" onclick="modellerSide()">
+    <img src="icon/rotteKnappRosa.png"><br>Modeller</button>
 </td>
-<td><button id="plasseringsAlderBtn" onclick="alderSide()">Eiere</button></td>
+<td><button class="knapp" id="plasseringsAlderBtn" onclick="alderSide()">
+  <img src="icon/rotteKnappGronn.png"><br>Alder</button></td>
 </tr>
 </table>
 </div>
@@ -107,6 +118,7 @@
     <div id="nyligMap"></div>
     <div id="modellerMap"></div>
       <div id="alderMap"></div>
+
 </div>
 
     </body>
