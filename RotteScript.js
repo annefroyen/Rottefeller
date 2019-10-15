@@ -15,78 +15,110 @@
 
             var map = new google.maps.Map(mapElement, mapOptions);
 
+            var iconbase = 'https://maps.google.com/mapfiles/ms/micons/';
 
 
-            var iconBase =
-           'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
-
-
+            
 
           for(var i = 0; i < data.length; i++){
+
+let iconImage = 'icon/rotteIconOransj.png'
+if(data[i].Adresse != null || data[i].Adresse != ""){
+
+              let dato = data[i]["Dato for flytting"];
+
+              let substr1 = dato.substr(0,2);
+              let substr2 = dato.substr(3,2);
+              let substr3 = dato.substr(6,8);
+
+              // To set two dates to two variables
+              let dagensDato = new Date();
+              let plasseringsDato = new Date(substr2 + "/" + substr1 + "/20" +substr3);
+
+
+            console.log("dagensDato" + dagensDato)
+            console.log("plasseringsDato" + plasseringsDato)
+
+            // To calculate the time difference of two dates
+            let diffTid = dagensDato.getTime() - plasseringsDato.getTime();
+            console.log("dagensDato.getTime" + dagensDato.getTime())
+            console.log("plasseringsDato.getTime" + plasseringsDato.getTime())
+
+            // To calculate the no. of days between two dates
+            let diffDager = diffTid / (1000 * 3600 * 24);
+
+            //To display the final no. of days (result)
+            console.log("Total number of days between dates: " + diffDager);
+
+
+let hyppighet = data[i]["Skudd siden plassering"] / diffDager;
+
+if(hyppighet > 1){
+  iconImage = 'icon/rotteIconRaud.png'
+}else if(hyppighet > 0.5){
+  iconImage = 'icon/rotteIconOransj.png'
+}else{
+    iconImage = 'icon/rotteIconGul.png'
+}
+}
+
             var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(data[i].Latitude, data[i].Longitude),
                 map: map,
-                title: data[i].Adresse
+                title: data[i].Adresse,
+                icon: iconImage,
             });
-
-
-
-
-//DATO
-            let dato = new Date();
-            console.log(dato);
-            console.log("getDate:" + dato.getDate()+" getMonth" + dato.getMonth() + " getFullYear" + dato.getFullYear());
-
-
-///henter ut første char i dato element.
-
-//Nb rett måned må ha +1;
-
-            console.log((data[1]["Dato for flytting"].substr(0,2)) - dato.getDate())
-
-
-            console.log("Dato for flytting: ")
-            console.log("substring 0-2: "(data[0]["Dato for flytting"].substr(0,2)))
-            console.log("substring 3-5: "(data[0]["Dato for flytting"].substr(3,5)))
-            console.log("substring 6-8: "(data[0]["Dato for flytting"].substr(6,8)))
-
-
-          //  let dato = new Date("06/30/2019");
-          //  console.log("Dagen dato: ");
-          //  console.log("getDate:" + dato.getDate()+" getMonth" + dato.getMonth() +" getFullYear" + dato.getFullYear());
-
-
-}
-
-
-
-
+            }
 
         };
 
 
 
 
+function finnSkuddHyppighet(data){
+
+
+let dato = data["Dato for flytting"]
+
+  let substr1 = dato.substr(0,2);
+  let substr2 = dato.substr(3,2);
+  let substr3 = dato.substr(6,8);
+
+  // To set two dates to two variables
+  let dagensDato = new Date();
+  let plasseringsDato = new Date(substr2 + "/" + substr1 + "/20" +substr3);
+
+
+console.log("dagensDato" + dagensDato)
+console.log("plasseringsDato" + plasseringsDato)
+
+// To calculate the time difference of two dates
+let diffTid = dagensDato.getTime() - plasseringsDato.getTime();
+console.log("dagensDato.getTime" + dagensDato.getTime())
+console.log("plasseringsDato.getTime" + plasseringsDato.getTime())
+
+// To calculate the no. of days between two dates
+let diffDager = diffTid / (1000 * 3600 * 24);
+
+//To display the final no. of days (result)
+console.log("Total number of days between dates: " + diffDager);
+
+}
 
 
  $(document).ready(function() {
-
-console.log("yo")
-
 $.ajax({
             type: "GET",
             url: "rottefeller.json",
             dataType: "JSON",
             success: function (data) {
-               console.log(data[0])
-
-                initmaps(data)
-               document.getElementById('diverse').innerHTML = data[0].Latitude
-
+              initmaps(data)
+              finnSkuddHyppighet(data),
+              console.log("success")
              },
              error: function(){
-               console.log("feilmelding")
-               document.getElementById('diverse').innerHTML = "Feilmelding";
+               console.log("error")
+               document.getElementById('diverse').innerHTML = "Noe gikk galt!";
 
              }
         });
