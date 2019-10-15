@@ -3,10 +3,67 @@
     <head>
         <title>Rottefeller</title>
         <style>
-            #map {
-                width: 100%;
-                height: 500px;
+            #hyppighetMap {
+                position: absolute;
+                width: 80%;
+                float: right;
+                height: 100vh;
             }
+            #nyligMap {
+                position: absolute;
+                width: 80%;
+                float: right;
+                height: 100vh;
+            }
+            #modellerMap {
+                position: absolute;
+                width: 80%;
+                float: right;
+                height: 100vh;
+            }
+            #alderMap {
+                position: absolute;
+                width: 80%;
+                float: right;
+                height: 100vh;
+            }
+
+            .maps{
+              width: 80%;
+              float: right;
+              height: 100vh;
+            }
+            .meny{
+              width: 17%;
+            padding: 1%;
+              float: left;
+              height: 100vh;
+              background:grey;
+              font-family: sans-serif;
+
+            }
+
+            .tittel{
+              font-size: 3vw;
+            }
+            .info{
+              font-size: 2vw;
+
+            }
+            .knapper{
+              position: absolute;
+              bottom: 0px;
+
+            }
+            .table {
+              width: 100%;
+              height: 100%;
+       }
+            .knapp{
+
+            }
+
+
         </style>
 
     </head>
@@ -15,10 +72,42 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANiq6yV1p3q6EB8EFJHmFhko57rFaGX5o"></script>
   <script src="RotteScript.js"></script>
 
-    <div id="map"></div>
-    <p id="diverse"></p>
-    <div id="testDiv"></div>
+<div class="meny">
+<h1 class="tittel">Rottefeller</h1>
+<div id="info" class="info">
+  Hentet fra Stavanger kommune sine
+  <a href="https://open.stavanger.kommune.no/dataset/rottefeller-i-stavanger/resource/db04ffae-a248-43d0-a597-d446a09e369e">datasett</a>
+</div>
 
+<div class="knapper">
+  <table>
+<tr>
+<td>
+
+<button id="hyppighetBtn" onclick="hyppighetSide()">Aktivitet</button>
+</td>
+<td>
+  <button id="NyligBtn" onclick="nyligSide()">Nylig aktivitet</button>
+</td>
+</tr>
+<tr>
+<td>
+  <button id="ModellerBtn" onclick="modellerSide()">Modeller</button>
+</td>
+<td><button id="plasseringsAlderBtn" onclick="alderSide()">Eiere</button></td>
+</tr>
+</table>
+</div>
+
+
+
+</div>
+<div class="maps">
+  <div id="hyppighetMap"></div>
+    <div id="nyligMap"></div>
+    <div id="modellerMap"></div>
+      <div id="alderMap"></div>
+</div>
 
     </body>
 </html>
