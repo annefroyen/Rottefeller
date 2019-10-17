@@ -290,7 +290,7 @@ $.ajax({
 
 
  function hyppighetSide(){
-      document.getElementById("info").innerHTML = "hyppighet!";
+      document.getElementById("info").innerHTML = "Viser hvilke feller som har fanget flest rotter i snitt.";
         document.getElementById("hyppighetMap").style.display = "block";
         document.getElementById("nyligMap").style.display = "none";
         document.getElementById("modellerMap").style.display = "none";
@@ -298,7 +298,7 @@ $.ajax({
  }
 
  function nyligSide(){
-   document.getElementById("info").innerHTML = "nylig!";
+   document.getElementById("info").innerHTML = "Viser hvor det nylig har vert fanget rotter.";
    document.getElementById("hyppighetMap").style.display = "none";
    document.getElementById("nyligMap").style.display = "block";
    document.getElementById("modellerMap").style.display = "none";
@@ -306,16 +306,15 @@ $.ajax({
  }
 
  function modellerSide(){
-   document.getElementById("info").innerHTML = "modeller!";
+ document.getElementById("info").innerHTML = "Viser hvilke modell fellene er.";
    document.getElementById("hyppighetMap").style.display = "none";
    document.getElementById("nyligMap").style.display = "none";
    document.getElementById("modellerMap").style.display = "block";
    document.getElementById("alderMap").style.display = "none";
-
  }
 
  function alderSide(){
-   document.getElementById("info").innerHTML = "nye og gamle plasseringer! mei renn to år: mørkegrønn. Meir enn eit år: grønn. Mindre enn eit år: lysegrønn";
+   document.getElementById("info").innerHTML = "Vise hvor lenge fellene har staatt paa sin plass.";
    document.getElementById("hyppighetMap").style.display = "none";
    document.getElementById("nyligMap").style.display = "none";
    document.getElementById("modellerMap").style.display = "none";
