@@ -2,8 +2,7 @@
 
         function lagHyppighetKart(data) {
 
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
+                var mapOptions = {
                 zoom: 12,
                 center: new google.maps.LatLng(58.94419, 5.66171),
                 styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
@@ -31,7 +30,7 @@ if(data[i].Adresse != null || data[i].Adresse != ""){
               let substr2 = dato.substr(3,2);
               let substr3 = dato.substr(6,8);
 
-              // To set two dates to two variables
+
               let dagensDato = new Date();
               let plasseringsDato = new Date(substr2 + "/" + substr1 + "/20" +substr3);
 
@@ -39,16 +38,16 @@ if(data[i].Adresse != null || data[i].Adresse != ""){
             console.log("dagensDato" + dagensDato)
             console.log("plasseringsDato" + plasseringsDato)
 
-            // To calculate the time difference of two dates
+
             let diffTid = dagensDato.getTime() - plasseringsDato.getTime();
             console.log("dagensDato.getTime" + dagensDato.getTime())
             console.log("plasseringsDato.getTime" + plasseringsDato.getTime())
 
-            // To calculate the no. of days between two dates
+
             let diffDager = diffTid / (1000 * 3600 * 24);
 
-            //To display the final no. of days (result)
-            console.log("Total number of days between dates: " + diffDager);
+
+            console.log(diffDager);
 
 
 let hyppighet = data[i]["Skudd siden plassering"] / diffDager;
@@ -75,8 +74,8 @@ if(hyppighet > 1){
 
         function lagNyligKart(data) {
 
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-            var mapOptions = {
+
+  var mapOptions = {
                 zoom: 12,
                 center: new google.maps.LatLng(58.94419, 5.66171),
                 styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}]
@@ -105,7 +104,7 @@ if(data[i].Adresse != null || data[i].Adresse != ""){
               let substr2 = dato.substr(3,2);
               let substr3 = dato.substr(6,8);
 
-              // To set two dates to two variables
+
               let dagensDato = new Date();
               let plasseringsDato = new Date(substr2 + "/" + substr1 + "/20" +substr3);
 
@@ -113,16 +112,16 @@ if(data[i].Adresse != null || data[i].Adresse != ""){
             console.log("dagensDato" + dagensDato)
             console.log("plasseringsDato" + plasseringsDato)
 
-            // To calculate the time difference of two dates
+
             let diffTid = dagensDato.getTime() - plasseringsDato.getTime();
             console.log("dagensDato.getTime" + dagensDato.getTime())
             console.log("plasseringsDato.getTime" + plasseringsDato.getTime())
 
-            // To calculate the no. of days between two dates
+
             let diffDager = diffTid / (1000 * 3600 * 24);
 
-            //To display the final no. of days (result)
-            console.log("Total number of days between dates: " + diffDager);
+
+            console.log(diffDager);
 
 
 if(diffDager > 120){
@@ -147,7 +146,6 @@ if(diffDager > 120){
 
         function lagModellerKart(data) {
 
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var mapOptions = {
                 zoom: 12,
                 center: new google.maps.LatLng(58.94419, 5.66171),
@@ -195,7 +193,6 @@ if(modell == "Smart Pipe 250"){
 
         function lagAlderKart(data) {
 
-            // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
             var mapOptions = {
                 zoom: 12,
                 center: new google.maps.LatLng(58.94419, 5.66171),
@@ -225,7 +222,7 @@ if(data[i]["Dato for flytting"] != null || data[i]["Dato for flytting"] != ""){
               let substr2 = dato.substr(3,2);
               let substr3 = dato.substr(6,8);
 
-              // To set two dates to two variables
+
               let dagensDato = new Date();
               let plasseringsDato = new Date(substr2 + "/" + substr1 + "/20" +substr3);
 
@@ -233,16 +230,16 @@ if(data[i]["Dato for flytting"] != null || data[i]["Dato for flytting"] != ""){
             console.log("dagensDato" + dagensDato)
             console.log("plasseringsDato" + plasseringsDato)
 
-            // To calculate the time difference of two dates
+
             let diffTid = dagensDato.getTime() - plasseringsDato.getTime();
             console.log("dagensDato.getTime" + dagensDato.getTime())
             console.log("plasseringsDato.getTime" + plasseringsDato.getTime())
 
-            // To calculate the no. of days between two dates
+
             let diffDager = diffTid / (1000 * 3600 * 24);
 
-            //To display the final no. of days (result)
-            console.log("Total number of days between dates: " + diffDager);
+
+            console.log(diffDager);
 
 
 
